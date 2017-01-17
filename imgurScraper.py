@@ -21,12 +21,14 @@ folderName = folderName[0].text_content().rstrip(
 if not os.path.exists(folderName):
     os.makedirs(folderName)
 
-print("Will be saved to the folder {0:s}".format(folderName))
+print("Will be saved to the folder {0: s}".format(folderName))
 
 for i in range(len(imgPath)):
 
-	downloadSrc = imgPath[i].strip('//')
-	print(downloadSrc)
+    downloadSrc = imgPath[i].strip('//')
+    print(downloadSrc)
 
-	urllib.request.urlretrieve("https://{0:s}".format(downloadSrc), "{0:s}/{1:d}.jpg".format(folderName, (i + 1)))
-	print('Downloaded Image', (i + 1))
+    urllib.request.urlretrieve(
+        "https://{0:s}".format(downloadSrc),
+        "{0:s}/{1:d}".format(folderName, (i + 1)))
+    print('Downloaded Image', (i + 1))
